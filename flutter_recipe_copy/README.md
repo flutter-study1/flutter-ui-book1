@@ -1,6 +1,6 @@
-# flutter_recipe
+# 챕터 05 레시피 앱 만들기
 
-A new Flutter application.
+![ex_screenshot](./ppt_resources/1.png)
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
-# flutter_recipe_study
+# 챕터 05 레시피 앱 만들기
 
-flutter_recipe_study
+![ex_screenshot](./ppt_resources/1.png)
 
 ## Getting Started
 

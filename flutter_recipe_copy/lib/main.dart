@@ -21,11 +21,12 @@ class RecipePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: _buildRecipeAppBar(),
+      backgroundColor: Colors.white,  // 1.배경생 white로 설정
+      appBar: _buildRecipeAppBar(),  // 2.비어 있는 AppBar 연결해두기
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 20),  // 3.수평으로 여백 주기
+        child: ListView(  // 4.위에서 아래로 내려가는 구조이기 때문에 ListView 위젯 사용용          children: [
+            // 아래는 전부 위젯으로 되어 있다.
           children: [
             RecipeTitle(),
             RecipeMenu(),
@@ -37,7 +38,7 @@ class RecipePage extends StatelessWidget {
       ),
     );
   }
-
+  // 아래 _ 바로 시작하는 메소느는 클래스 내부에서만 호출 가능(private)
   AppBar _buildRecipeAppBar() {
     return AppBar(
       backgroundColor: Colors.white,

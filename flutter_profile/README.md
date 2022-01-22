@@ -1,6 +1,6 @@
-# flutter_profile
+# example_profile
 
-A new Flutter application.
+A new Flutter project.
 
 ## Getting Started
 

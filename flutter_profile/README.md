@@ -3,7 +3,7 @@
 
 ## 06 _ 2 프로필 앱 뼈대 작성하기
 
-### "primaryColor: Colors.white,"의 용도?
+### - "primaryColor: Colors.white,"의 용도?
 ```java
     primaryColor: Colors.white,
     appBarTheme: AppBarTheme(
@@ -13,7 +13,7 @@
     )
 ```
 
-### TabBar구현을 위해 StatefulWidget을 사용해야 하는가?
+### - TabBar구현을 위해 StatefulWidget을 사용해야 하는가?
 
 <br/>
 <br/>

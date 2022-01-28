@@ -73,7 +73,7 @@
 
 
 ## 6.TabBar 위젯과 TabBarView 위젯 사용하기
-### SingleTickerProviderStateMixin의 용도?
+### SingleTickerProviderStateMixin의 용도? (애니메이션? 다중상속?)
 * SingleTickerProviderStateMixin은 한 개의 애니메이션을 가진 위젯을 정의할 때 사용.<br/>
   2개 이상의 애니메이션을 가진 위젯을 정의하려면 TickerProviderStateMixin을 사용해야 합니다.
 

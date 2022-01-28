@@ -23,7 +23,7 @@
 
 ## 06 _ 3 프로필 앱 위젯 구성하기
 <br/>
-    1.AppBar
+
     
     1.AppBar 위젯과 Scaffold의 endDrawer 속성 활용하기
     2.CircleAvatar 위젯

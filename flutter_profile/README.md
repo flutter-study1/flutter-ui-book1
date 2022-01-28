@@ -31,7 +31,7 @@
     4.재사용 가능한 함수 만들기
     5.InkWell 위젯을 사용하여 ProfileButton 클래스 만들기
     6.TabBar 위젯과 TabBarView 위젯 사용하기
-    7.GridView 위젤과 Image.network
+    7.GridView 위젯과 Image.network
  
 <br/>
 <br/>
@@ -69,8 +69,17 @@
   - TextButton 위젯
   - ElevatedButton 위젯
   - OutlinedButton 위젯
-  - InkWell 위젯
-    (모든 위젯을 버튼으로 만들 수 있는 특징이 있고, 보통 Container로 디자인한 뒤 InkWell 위젯으로 감싸는 방법이 선호됨)
+  - InkWell 위젯 (모든 위젯을 버튼으로 만들 수 있는 특징이 있고, 보통 Container로 디자인한 뒤 InkWell 위젯으로 감싸는 방법이 선호됨)
+
+
+## 6.TabBar 위젯과 TabBarView 위젯 사용하기
+### SingleTickerProviderStateMixin의 용도?
+* SingleTickerProviderStateMixin은 한 개의 애니메이션을 가진 위젯을 정의할 때 사용.<br/>
+  2개 이상의 애니메이션을 가진 위젯을 정의하려면 TickerProviderStateMixin을 사용해야 합니다.
+
+
+## 7.GridView 위젯과 Image.network
+* 동일한 디자인이 반복되는 경우, 재사용 가능한 함수로 만드는 것이 좋음.
 
 
 <hr/>

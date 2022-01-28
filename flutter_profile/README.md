@@ -64,7 +64,6 @@
     4.Container
     5.ClipRRect 
 
-![ex_screenshot](./ppt_resources/1.png)
 
 ## 2.앱 뼈대 구성하기 (책)
 

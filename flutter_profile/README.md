@@ -1,6 +1,18 @@
 # 챕터 06 프로필 앱 만들기
 <br/>
 
+## 06 _ 2 프로필 앱 뼈대 작성하기
+
+### "primaryColor: Colors.white,"의 용도?
+<br/>
+    primaryColor: Colors.white,
+    appBarTheme: AppBarTheme(
+      titleTextStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+      backgroundColor: Colors.white,
+      iconTheme: IconThemeData(color: Colors.blue),
+    )
+    
+<br/>
 
 ## 06 _ 3 프로필 앱 위젯 구성하기
 <br/>

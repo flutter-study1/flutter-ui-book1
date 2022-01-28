@@ -3,7 +3,7 @@
 
 ## 06 _ 2 프로필 앱 뼈대 작성하기
 
-### "primaryColor: Colors.white,"의 용도?
+### 1) 'primaryColor: Colors.white'의 용도?
 ```java
     primaryColor: Colors.white,
     appBarTheme: AppBarTheme(
@@ -71,10 +71,10 @@
 <br/>
 
 ## 6.TabBar 위젯과 TabBarView 위젯 사용하기
-### TabBar구현을 위해 StatefulWidget을 사용해야 하는가?
-<br/>
+### 1) TabBar구현을 위해 StatefulWidget을 사용해야 하는가?
 
-### SingleTickerProviderStateMixin의 용도? (애니메이션? 다중상속?)
+
+### 2) SingleTickerProviderStateMixin의 용도? (애니메이션? 다중상속?)
 * SingleTickerProviderStateMixin은 한 개의 애니메이션을 가진 위젯을 정의할 때 사용.<br/>
   2개 이상의 애니메이션을 가진 위젯을 정의하려면 TickerProviderStateMixin을 사용해야 합니다.
 <br/>

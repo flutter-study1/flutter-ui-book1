@@ -48,7 +48,7 @@
   - endDrawer : 오른쪽에서 왼쪽으로 
 
 
-## CircleAvatar 위젯
+## 2.CircleAvatar 위젯
 
 * 위젯을 둥글게 만드는 법
   - Container 위젯의 decoration 속성을 사용하는 방법
@@ -56,74 +56,8 @@
   - CircleAvatar 위젯을 사용하는 방법
 
 
-## 3.큰 그림으로 봤을때 코드
-*위젯(widget)의 사전적 의미는 ‘소형 장치’ 또는 ‘부품’이다.*
-
-```java
-    import 'package:flutter/cupertino.dart';
-    import 'package:flutter/material.dart';
-
-    //메인
-    void main() {
-        runApp(MyApp());
-    }
-
-    //메인에서 호출 하는 위젯 > 테마호출, home 호출
-    class MyApp extends StatelessWidget {
-        @override
-        Widget build(BuildContext context) {
-            return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                theme: ThemeData(fontFamily: "PatuaOne"),
-                home: RecipePage(),
-            );
-        }
-    }
-
-    //메인에서 호출 하는 위젯에 > 위젯
-    class RecipePage extends StatelessWidget {
-        @override
-        Widget build(BuildContext context) {
-            return Scaffold(
-                backgroundColor: Colors.white,  // 1.배경생 white로 설정
-                appBar: _buildRecipeAppBar(),  // 2.비어 있는 AppBar 연결해두기
-                body: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),  // 3.수평으로 여백 주기
-                    child: ListView(  // 4.위에서 아래로 내려가는 구조이기 때문에 ListView 위젯 사용용          
-                        children: [
-                            /*
-                            아래는 전부 위젯으로 되어 있다
-                            아래의 RecipeTitle 클래스가 있음.  대부분 상속 받는 StatelessWidget 등.
-                            여러 Widget 가 있겠지만, 해당챕터 애서는 StatelessWidget 를 상속 받으면 
-                            @override
-                            Widget build(BuildContext context) { "구현" } 하게 됨.
-                            */
-                            RecipeTitle(),  
-                            RecipeMenu(),
-                            RecipeListItem("coffee", "Made Coffee"),  // 이미지
-                            RecipeListItem("burger", "Made Burger"),
-                            RecipeListItem("pizza", "Made Pizza"),
-                        ],
-                    ),
-                ),
-            );
-        }
-    }
-
-    class RecipeTitle extends StatelessWidget {
-        @override
-        Widget build(BuildContext context) {
-            //아래 return 에 대부분 어떤 화면을 구성하는 행위힘.
-            return Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Text(
-                    "Recipes",
-                    style: TextStyle(fontSize: 30),
-                ),
-            );
-        }
-    }
-```
+## 3.Column 위젯의 CrossAxisAligment 속성 활용하기
+* Column위젯을 사용할때와 Row위젯을 사용할때, corssAxis와 mainAxis가 서로 반대가 된다.
 
 <hr/>
 

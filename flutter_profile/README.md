@@ -37,13 +37,15 @@
 <br/>
 <br/>
 
-## 1.화면 구조보기
+## 1.AppBar 위젯과 Scaffold의 endDrawer 속성 활용하기
 
-    1.AppBar
-    2.Listview
-    3.Row
-    4.Container
-    5.ClipRRect 
+* AppBar 위젯
+  - leading : 왼쪽 정렬
+  - title : 제목
+  - actions : 오른쪽 정렬
+* Scaffolod의 endDrawer 속성
+  - Drawer : 왼쪽에서 오른쪽으로 슬라이드
+  - endDrawer : 오른쪽에서 왼쪽으로 
 
 
 ## 2.앱 뼈대 구성하기 (책)

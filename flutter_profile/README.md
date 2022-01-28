@@ -11,7 +11,7 @@
       backgroundColor: Colors.white,
       iconTheme: IconThemeData(color: Colors.blue),
     )
-'''  
+```
 
 
 ## 06 _ 3 프로필 앱 위젯 구성하기

@@ -40,19 +40,20 @@
 ## 1.AppBar 위젯과 Scaffold의 endDrawer 속성 활용하기
 
 * AppBar 위젯
-  - leading : 왼쪽 정렬
+  - leading : 왼쪽 상단 위젯
   - title : 제목
-  - actions : 오른쪽 정렬
+  - actions : 오른쪽 상단 위젯
 * Scaffolod의 endDrawer 속성
   - Drawer : 왼쪽에서 오른쪽으로 슬라이드
   - endDrawer : 오른쪽에서 왼쪽으로 
 
 
-## 2.앱 뼈대 구성하기 (책)
+## CircleAvatar 위젯
 
-* 이미지 폰트는 assets 폴더 아래
-* 분할일수 있는 Widget 는 lib/components 폴더 아래.
-* 책은 lib/components, lib/pages 에 있음, 이미지, 폰트 설정 파일 pubspec.yaml 변경시 Pub get 버튼 사용( 또는 cmd 에서 해당 플러터 프로젝트 위치에서 flutter pub get 명령 실행).
+* 위젯을 둥글게 만드는 법
+  - Container 위젯의 decoration 속성을 사용하는 방법
+  - Image 위젯을 ClipOver 위젯으로 감싸는 방법
+  - CircleAvatar 위젯을 사용하는 방법
 
 
 ## 3.큰 그림으로 봤을때 코드

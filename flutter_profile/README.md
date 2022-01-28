@@ -73,6 +73,7 @@
 ## 6.TabBar 위젯과 TabBarView 위젯 사용하기
 ### TabBar구현을 위해 StatefulWidget을 사용해야 하는가?
 <br/>
+
 ### SingleTickerProviderStateMixin의 용도? (애니메이션? 다중상속?)
 * SingleTickerProviderStateMixin은 한 개의 애니메이션을 가진 위젯을 정의할 때 사용.<br/>
   2개 이상의 애니메이션을 가진 위젯을 정의하려면 TickerProviderStateMixin을 사용해야 합니다.
@@ -82,49 +83,3 @@
 
 ## 7.GridView 위젯과 Image.network
 * 동일한 디자인이 반복되는 경우, 재사용 가능한 함수로 만드는 것이 좋음.
-
-
-<hr/>
-
-## 코딩 순서
-
-### AppBar 위젯의 action 속성에 Icon 위젯 추가하기
-
-- AppBar는 현재 화면의 title, leading, action 영역을 포함하고 있는 막대 모양의 위젯.
-
-### RecipeTitle 커스텀 위젯 만들기
-
-- 위젯 클래스 생성 하여 return Text 위젯에 값 설정.
-
-### Theme에 Font 적용하기
-
-- 테마는 전체적으로 앱의 모양과 느낌을 가지고 있습니다.
-
-### Container 위젯을 활용한 RecipeMenu 커스텀 위젯 만들기
-
-- Container 위젯은 빈 박스 위젯입니다만, SizedBox 위젯과 차이점이 있다면 내부에 decoration 속성이 있어서 박스에   
- 색상을 입히거나 박스의 모양을 바꾼다거나 테두리 선을 줄 수 있습니다. SizedBox 위젯은 보통 마진(Margin)을 줘야할 때 사용합니다.
-
-### 재사용 가능한 레시피 리스트 아이템 만들기 - 클래스 생성자 활용
-
-- RecipeListItem 객체를 만들 때 생성자에서 imageName, title 값을 초기화할(파라이터로 원하는 값을 넘길수 있다.) 수 있다.
-
-### ListView 위젯을 활용하여 세로 스크롤 달기
-
-- ListView는 가장 일반적으로 사용되는 스크롤 위젯.
-
-### AspectRatio로 이미지 비율 정하기
-
-- 특정 종횡비로 자식 크기를 조정하는 위젯.
-
-### ClipRRect 위젯으로 이미지 모서리에 곡선 주기
-
-- 둥근 사각형을 사용하여 자식을 자르는 위젯.
-
-
-
-
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

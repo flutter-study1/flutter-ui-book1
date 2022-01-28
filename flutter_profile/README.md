@@ -82,4 +82,5 @@
 
 
 ## 7.GridView 위젯과 Image.network
-* 동일한 디자인이 반복되는 경우, 재사용 가능한 함수로 만드는 것이 좋음.
+### Q1) GridView에 들어올 item의 개수가 동적이라면 GirdView로 구성할 수 없다?
+* GridView에 들어올 item의 개수가 동적이라면 GridView로 구성할 수 없습니다. 이럴 때는 GridView.builder를 사용해야 합니다.

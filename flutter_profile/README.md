@@ -23,6 +23,8 @@
 
 ## 06 _ 3 프로필 앱 위젯 구성하기
 <br/>
+    1.AppBar
+    
     1.AppBar 위젯과 Scaffold의 endDrawer 속성 활용하기
     2.CircleAvatar 위젯
     3.Column 위젯의 CrossAxisAligment 속성 활용하기
@@ -30,7 +32,7 @@
     5.InkWell 위젤을 사용하여 ProfileButton 클래스 만들기
     6.TabBar 위젯과 TabBarView 위젯 사용하기
     7.GridView 위젤과 Image.network
-    
+ 
 <br/>
 
   

@@ -22,7 +22,7 @@
 - flutter_login
 
 ### 8장 플러터 위젯 - 쇼핑카트 앱 만들기
-- flutter_shoppingcart
+- [flutter_shoppingcart : 임대림](https://github.com/flutter-study1/flutter-ui-book1/tree/daelim.im2/flutter_shoppingcart_copy/README.md)
 
 ### 9장 플러터2.0 - 모두의숙소 웹 만들기
 - flutter_airbnb

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_shoppingcart/components/shoppingcart_detail.dart';
 // import 'package:flutter_shoppingcart/components/shoppingcart_header.dart';
 // import 'package:flutter_shoppingcart/theme.dart';
+import 'package:flutter_svg/svg.dart';
 import 'dart:developer' as developer; //디버깅 로그 출력
 
 void main() {
@@ -12,9 +13,152 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // 로그인 화면을 재사용 하여, ㅛ핑카트 앱을 전에 배치 하였다.
     return MaterialApp(
-      theme: theme(),
-      home: ShoppingCartPage(),
+      theme: ThemeData(
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.black,
+            primary: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            minimumSize: Size(400, 60),
+          ),
+        ),
+      ),
+      initialRoute: "/login",
+      routes: {
+        "/login": (context) => LoginPage(),
+        "/home": (context) => ShoppingCartPage(),
+      },
+    );
+  }
+  // 아래는 원래 있던 소스
+  // Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //     theme: theme(),
+  //     home: ShoppingCartPage(),
+  //   );
+}
+
+const double small_gap = 5.0;
+const double medium_gap = 10.0;
+const double large_gap = 20.0;
+const double xlarge_gap = 100.0;
+
+//Page.start
+class LoginPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
+          children: [
+            SizedBox(height: 200),
+            Logo("Care Soft"),
+            SizedBox(height: 50),
+            CustomForm(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Logo extends StatelessWidget {
+  final String title;
+  const Logo(this.title);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SvgPicture.asset(
+          "assets/logo.svg",
+          height: 70,
+          width: 70,
+        ),
+        Text(
+          title,
+          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+        ),
+      ],
+    );
+  }
+}
+
+class CustomForm extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>(); // 1. 글로벌 key
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      // 2. 글로벌 key를 Form 태그에 연결하여 해당 key로 Form의 상태를 관리할 수 있다.
+      key: _formKey,
+      child: Column(
+        children: [
+          CustomTextFormField("Email"),
+          SizedBox(height: medium_gap),
+          CustomTextFormField("Password"),
+          SizedBox(height: large_gap),
+          // 3. TextButton 추가
+          TextButton(
+            onPressed: () {
+              developer.log("클릭");
+              // 3. 유효성 검사
+              if (_formKey.currentState!.validate()) {
+                Navigator.pushNamed(context, "/home");
+              }
+            },
+            child: Text("Login"),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class CustomTextFormField extends StatelessWidget {
+  final String text;
+
+  const CustomTextFormField(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(text),
+        SizedBox(height: small_gap),
+        TextFormField(
+          validator: (value) => value!.isEmpty
+              ? "Please enter some text"
+              : null, // 1. 값이 없으면 Please enter some text 경고 화면 표시
+          obscureText:
+              // 2. 해당 TextFormField가 비밀번호 입력 양식이면 **** 처리 해주기
+              text == "Password" ? true : false,
+          decoration: InputDecoration(
+            hintText: "Enter $text",
+            enabledBorder: OutlineInputBorder(
+              // 3. 기본 TextFormField 디자인
+              borderRadius: BorderRadius.circular(20),
+            ),
+            focusedBorder: OutlineInputBorder(
+              // 4. 손가락 터치시 TextFormField 디자인
+              borderRadius: BorderRadius.circular(20),
+            ),
+            errorBorder: OutlineInputBorder(
+              // 5. 에러발생시 TextFormField 디자인
+              borderRadius: BorderRadius.circular(20),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              // 5. 에러가 발생 후 손가락을 터치했을때 TextFormField 디자인
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -23,7 +167,7 @@ class ShoppingCartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildShoppingCartAppBar(),
+      appBar: _buildShoppingCartAppBar(context),
       body: Column(
         children: [
           ShoppingCartHeader(),
@@ -34,11 +178,31 @@ class ShoppingCartPage extends StatelessWidget {
   }
 
 // AppBar 영역.
-  AppBar _buildShoppingCartAppBar() {
+  AppBar _buildShoppingCartAppBar(BuildContext context) {
     return AppBar(
       leading: IconButton(
         icon: Icon(Icons.arrow_back),
-        onPressed: () {},
+        onPressed: () {
+          print("print : loading.onPressed.clink");
+          // Navigator.of(context).pop();
+          showCupertinoDialog(
+            // 1. 추가
+            context: context,
+            builder: (context) => CupertinoAlertDialog(
+              title: Text("로그인 폼으로 이동 합니다."),
+              actions: [
+                CupertinoDialogAction(
+                  child: Text("확인"),
+                  onPressed: () {
+                    Navigator.of(context)..pop()..pop();
+                    // Navigator.of(context)..pop();
+                    // Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+          );
+        },
       ),
       // title: Text("앱바영역"),
       actions: [
@@ -152,18 +316,44 @@ class ShoppingCartDetail extends StatelessWidget {
           Text("Color Options"),
           SizedBox(height: 10),
           Row(
-            children: [
-              // 3. 동일한 색상 아이콘을 재사옹하기 위해 함수로 관리
-              _buildDetailIcon(Colors.black),
-              _buildDetailIcon(Colors.green),
-              _buildDetailIcon(Colors.orange),
-              _buildDetailIcon(Colors.grey),
-              _buildDetailIcon(Colors.white),
-            ],
+            // 3. 동일한 색상 아이콘을 재사옹하기 위해 함수로 관리
+            children: _builderDetailIconsDynamic([
+              Colors.black,
+              Colors.green,
+              Colors.orange,
+              Colors.grey,
+              Colors.white
+            ]),
+            // [
+            // _buildDetailIcon(Colors.black),
+            // _buildDetailIcon(Colors.green),
+            // _buildDetailIcon(Colors.orange),
+            // _buildDetailIcon(Colors.grey),
+            // _buildDetailIcon(Colors.white),
+            // ],
           ),
         ],
       ),
     );
+  }
+
+  // 목록 위젯 반환.dynamic
+  List<Widget> _builderDetailIconsDynamic(List<dynamic> items) {
+    List<Widget> rtnList = [];
+    items.forEach((element) {
+      rtnList.add(_buildDetailIcon(element));
+    });
+    return rtnList;
+  }
+
+  // 목록 위젯 반환.
+  // ignore: unused_element
+  List<Widget> _builderDetailIcons(List<Color> colors) {
+    List<Widget> widgets = [];
+    for (Color color in colors) {
+      widgets.add(_buildDetailIcon(color));
+    }
+    return widgets;
   }
 
   Widget _buildDetailIcon(Color mColor) {
@@ -201,19 +391,33 @@ class ShoppingCartDetail extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 20),
       child: Row(
-        children: [
-          Icon(Icons.star, color: Colors.yellow),
-          Icon(Icons.star, color: Colors.yellow),
-          Icon(Icons.star, color: Colors.yellow),
-          Icon(Icons.star, color: Colors.yellow),
-          Icon(Icons.star, color: Colors.yellow),
-          // 2. Spacer()로 Icon위젯과 Text위젯을 양끝으로 벌릴 수 있다. spaceBetween과 동일
-          Spacer(),
-          Text("review "),
-          Text("(26)", style: TextStyle(color: Colors.blue)),
-        ],
+        children: _builderIconsStarDynamic([1, 2, 3, 4, 5]),
+        // [
+        // Icon(Icons.star, color: Colors.yellow),
+        // Icon(Icons.star, color: Colors.yellow),
+        // Icon(Icons.star, color: Colors.yellow),
+        // Icon(Icons.star, color: Colors.yellow),
+        // Icon(Icons.star, color: Colors.yellow),
+        // 2. Spacer()로 Icon위젯과 Text위젯을 양끝으로 벌릴 수 있다. spaceBetween과 동일
+        // Spacer(),
+        // Text("review "),
+        // Text("(26)", style: TextStyle(color: Colors.blue)),
+        // ],
       ),
     );
+  }
+
+  // 목록 Star 반환.dynamic
+  List<Widget> _builderIconsStarDynamic(List<dynamic> items) {
+    List<Widget> rtnList = [];
+    items.forEach((element) {
+      print(element);
+      rtnList.add(Icon(Icons.star, color: Colors.yellow));
+    });
+    rtnList.add(Spacer());
+    rtnList.add(Text("review "));
+    rtnList.add(Text("(26)", style: TextStyle(color: Colors.blue)));
+    return rtnList;
   }
 
   Widget _buildDetailNameAndPrice() {

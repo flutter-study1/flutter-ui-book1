@@ -47,3 +47,5 @@ ellipsis라는 뜻처럼 지정된 사이즈에 넘어갈때 글자 뒤에 ...�
 <br/>
 <br/>
 <br/>
+
+## getBodyWidth(context)???

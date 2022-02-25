@@ -29,6 +29,7 @@ MediaQuery.of(context).padding.top      //상단 상태 표시줄 높이 double 
 <br/>
 <br/>
 <br/>
+![image](https://user-images.githubusercontent.com/72690783/155633276-2ee6606b-1576-4ad2-b6da-6558b5bef6fe.png)
 
 
 ## 06 _ 3 프로필 앱 위젯 구성하기

@@ -3,8 +3,6 @@
 
 ## 앱 화면 크기 알아내기(MediaQuery)
 
-### Q1) 'primaryColor: Colors.white'의 용도?
-
 플러터(Flutter)에서 화면 크기를 얻기 위해 MediaQuery라는 클래스를 이용한다.
 
 Mediaquery의 경우 화면 크기 외에도 여러 가지 기기의 시스템 정보들을 담고 있다.
@@ -32,18 +30,20 @@ MediaQuery.of(context).padding.top      //상단 상태 표시줄 높이 double 
 
 
 
-## 06 _ 3 프로필 앱 위젯 구성하기
+## TextOverflow.ellipsis
+
+ellipsis라는 뜻처럼 지정된 사이즈에 넘어갈때 글자 뒤에 ...을 붙여 생략해준다.
 <br/>
 
-    
-    1.AppBar 위젯과 Scaffold의 endDrawer 속성 활용하기
-    2.CircleAvatar 위젯
-    3.Column 위젯의 CrossAxisAligment 속성 활용하기
-    4.재사용 가능한 함수 만들기
-    5.InkWell 위젯을 사용하여 ProfileButton 클래스 만들기
-    6.TabBar 위젯과 TabBarView 위젯 사용하기
-    7.GridView 위젯과 Image.network
- 
+```java
+        Text(
+          "깔끔하고 다 갖춰져있어서 좋았어요:) 위치도 완전 좋아용 다들 여기 살고싶다구ㅋㅋㅋㅋㅋ 화장실도 3개예요!!! 5명이서 씻는것도 전혀 불편함 없이 좋았어요^^ 이불도 포근하고 좋습니당ㅎㅎ",
+          style: body1(),
+          maxLines: 3,
+
+          overflow: TextOverflow.ellipsis, // 3. 글자가 3 라인을 벗어나면 ... 처리된다.
+        ),
+```
 <br/>
 <br/>
 <br/>
